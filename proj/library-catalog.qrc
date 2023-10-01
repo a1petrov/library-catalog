@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/files">
+        <file>resources/def_lib_catalog.csv</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file>resources/close.png</file>
+        <file>resources/find.png</file>
+        <file>resources/open.png</file>
+        <file>resources/save.png</file>
+    </qresource>
+</RCC>
