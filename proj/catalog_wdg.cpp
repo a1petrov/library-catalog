@@ -54,7 +54,7 @@ CatalogWidget::CatalogWidget(QWidget *parent /* = nullptr*/)
     m_catalogView->setRootIsDecorated(false);
     m_catalogView->setAlternatingRowColors(true);
     m_catalogView->setSortingEnabled(true);
-    m_catalogView->sortByColumn(1, Qt::AscendingOrder);
+    m_catalogView->sortByColumn(0, Qt::AscendingOrder);
 
     auto lbl = new QLabel(tr("Filter pattern:"), catalogGroup);
     gridLayout->addWidget(lbl, row, col++);
@@ -63,14 +63,14 @@ CatalogWidget::CatalogWidget(QWidget *parent /* = nullptr*/)
     lbl->setBuddy(m_filterEdit);
     connect(m_filterEdit, &QLineEdit::textChanged, this, &CatalogWidget::filterRegExpChanged);
 
-    lbl = new QLabel(tr("Filter column::"), catalogGroup);
+    lbl = new QLabel(tr("Filter column:"), catalogGroup);
     gridLayout->addWidget(lbl, row, col++);
 
     gridLayout->addWidget(m_filterColCombo = new QComboBox(catalogGroup), row++, col--);
     m_filterColCombo->addItems(HDR_FIELDS);
     lbl->setBuddy(m_filterColCombo);
     connect(m_filterColCombo, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=]() {
-        qDebug() << m_filterColCombo->currentIndex();
+        //qDebug() << m_filterColCombo->currentIndex();
         m_proxyModel->setFilterKeyColumn(-1/*m_filterColCombo->currentIndex()*/);
     });
 
